@@ -1,0 +1,21 @@
+{% extends 'webgallery/base.html' %}
+<!DOCTYPE html> 
+<html lang = 'pl'>
+   <head>
+      <title>The Awesome Gallery
+      </title>
+   </head>
+    <body>
+       {%block pagecontent %}
+        {% if projects %}
+           <ul>
+              {% for proj in projects %}
+                 <li><a href="{% url 'gallery:project' proj.id %}">{{ proj.title }}</a></li>
+              {% endfor %}
+           </ul>
+        {% else %}
+           No projects available
+        {% endif %}
+       {% endblock %}
+    </body>
+</html>
