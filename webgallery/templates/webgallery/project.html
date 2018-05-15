@@ -14,17 +14,17 @@
 
       <div class = "container">
          <div class = "row">
-            <div class = "col-md-4 col-lg-5 project-data-container">
-               <div class = "gallery-data">
+            <div class = "col-md-4 col-lg-5 aw-gallery-data-container">
+               <div class = "aw-gallery-gallery-data">
                   <h4 class = 'title'>{{ gallery.title }}</h4>
-                  <h6 class = 'gallery-meta'> {{gallery.date}} <br> {% for cat in category %} {% if forloop.last == false %} <span>{{ cat.name }} ,</span> {% else %} <span> {{ cat.name }}</span>{% endif %} {% endfor %}</h6>   
+                  <h6 class = 'aw-gallery-gallery-meta'> {{gallery.date}} <br> {% for cat in category %} {% if forloop.last == false %} <span>{{ cat.name }} ,</span> {% else %} <span> {{ cat.name }}</span>{% endif %} {% endfor %}</h6>   
                </div>
             </div>
          
             <div class = "col-md-8 col-lg-7">
-               <div class = "big-picture">
+               <div class = "aw-gallery-big-picture">
                   {% for pic in pictures %}
-                  <span class = 'big-picture-thumb'>
+                  <span class = 'aw-gallery-big-picture-thumb'>
                      <img src = '{% static "images/"|add:pic.source %}' />
                   </span>
                   {% endfor %}

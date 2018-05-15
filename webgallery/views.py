@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 
 from .models import Gallery
-from .serializers import Gallery, ActivePic
+from .serializers import Gallery
 
 def index(request):
    return HttpResponse("Dupa")

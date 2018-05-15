@@ -2,7 +2,7 @@ from django.contrib.auth import update_session_auth_hash
 
 from rest_framework import serializers
 
-from webgallery.models import Category, Picture, Slider, Project, Appearence
+from webgallery.models import Category, Picture, Gallery, Appearence
 
 class CategorySerializer(serializers.ModelSerializer):
         
@@ -52,12 +52,12 @@ class PictureSerializer(serializers.ModelSerializer):
    
 class GallerySerializer(serializers.ModelSerializer):
    category = CategorySerializer(many = True)
-   slider = SliderSerializer(required = True)
+   pictures = PictureSerializer(many = True)
    thumbnail = serializers.RelatedField(queryset = Picture.objects.all(), source = "Picture")
    
    class Meta:
       model = Gallery
-      fields = ("title", "date", "thumbnail", "slider", "category")
+      fields = ("title", "date", "thumbnail", "pictures", "category")
       read_only_fields = ("date", "update_date")
       
    def create(self, validate_data):
@@ -65,7 +65,7 @@ class GallerySerializer(serializers.ModelSerializer):
    
    def update(self, instance, validate_data):
       instance.category = validate_data.get('category', instance.category)
-      instance.slider = validate_data.get('slider', instance.slider)
+      instance.slider = validate_data.get('pictures', instance.slider)
       instance.title = validate_data.get('title', instance.title)
       instance.thumbnail = validate_data.get('thumbnail', instance.thumbnail)
       instance.save()

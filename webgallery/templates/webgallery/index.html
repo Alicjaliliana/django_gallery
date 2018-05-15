@@ -7,10 +7,10 @@
    </head>
     <body>
        {%block pagecontent %}
-        {% if projects %}
+        {% if galleries %}
            <ul>
-              {% for gal in gallery %}
-                 <li><a href="{% url 'gallery:gallery' gal.id %}">{{ gal.title }}</a></li>
+              {% for gal in galleries %}
+                 <li><a href="{% url 'webgallery:gallery' gal.id %}">{{ gal.title }}</a></li>
               {% endfor %}
            </ul>
         {% else %}
