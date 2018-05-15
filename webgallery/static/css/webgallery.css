@@ -15,11 +15,11 @@ li {
    list-style: none;
 }
 
-.slider {
+.big-pcture {
    
 }
 
-.slider-thumb{
+.big-picture-thumb{
    display: inline-block;
    height: 8vh;
    width: 15vw;
@@ -29,7 +29,7 @@ li {
    box-shadow: 0 0 15px 0px #cfcfcf;
 }
 
-.project-data-container{
+.gallery-data-container{
    padding-top: 50px;
    background-color: white;
    display: flex;
@@ -39,18 +39,18 @@ li {
    flex-direction: column;
 }
 
-.project-data {
+.gallery-data {
    text-align: right;
    
 }
 
-.project-data .title {
+.gallery-data .title {
    font-size: 2em;
    font-weight: 700;
    font-family: 'Source Sans Pro', sans-serif;
 }
 
-.project-data .project-meta{
+.gallery-data .gallery-meta{
    font-family: 'Source Sans Pro', sans-serif;
    font-size: .8em;
    font-weight: 400;

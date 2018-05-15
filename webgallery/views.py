@@ -1,21 +1,20 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 
-from .models import Project
-from .serializers import Project, Slider
+from .models import Gallery
+from .serializers import Gallery, ActivePic
 
 def index(request):
    return HttpResponse("Dupa")
 
-def gallery(request):
-   projects = Project.objects.all()
-   context = {'projects': projects}
+def portfolio(request):
+   galleries = Gallery.objects.all()
+   context = {'galleries': galleries}
    return render (request, 'webgallery/index.html', context)
 
-def project(request, project_id):
-   proj = get_object_or_404(Project, id=project_id)
-   proj_slider = Project.get_slider(proj)
-   pictures = proj_slider.get_pictures()
-   category = Project.get_category(proj)
-   context = {'project': proj, 'proj_slider': proj_slider, 'pictures': pictures, 'category': category}
+def gallery (request, gallery_id):
+   gal = get_object_or_404(Gallery, id=gallery_id)
+   pictures = gal.get_pictures()
+   category = Gallery.get_category(gal)
+   context = {'gallery': gal, 'pictures': pictures, 'category': category}
    return render(request, 'webgallery/project.html', context)
