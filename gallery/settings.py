@@ -74,11 +74,21 @@ WSGI_APPLICATION = 'gallery.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
+def get_db_user():
+   try:
+      if type(os.getenv('galleryUser')) == 'None':
+         raise TypeError("None type")
+      else:
+         return os.getenv('galleryUser')
+   except TypeError:
+      return('')
+
+
 DATABASES = {
     'default': {
        'ENGINE': 'django.db.backends.postgresql',
        'NAME': 'galleriesdb',
-       'USER': os.getenv('galleryUser'),
+       'USER': get_db_user(),
        'PASSWORD': '',
        'HOST': '127.0.0.1',
        'PORT': '5432',
