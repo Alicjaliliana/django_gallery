@@ -21,7 +21,7 @@ class Picture (models.Model):
 
 class Gallery (models.Model):
    title = models.CharField(max_length = 200)
-   date = models.DateTimeField(auto_now_add = True)
+   creation_date = models.DateTimeField(auto_now_add = True)
    category = models.ManyToManyField(Category)
    thumbnail = models.ForeignKey(Picture, on_delete=models.CASCADE, related_name = "Thumbnail")
    pictures = models.ManyToManyField(Picture)
