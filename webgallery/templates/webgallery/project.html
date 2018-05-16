@@ -4,7 +4,7 @@
 <html lang = 'pl'>
    
    <head>
-      <title>{{ project.title }} - in The Awesome Gallery
+      <title>{{ gallery.title }} - in The Awesome Gallery
       </title>
    </head>
    
@@ -15,16 +15,16 @@
       <div class = "container">
          <div class = "row">
             <div class = "col-md-4 col-lg-5 project-data-container">
-               <div class = "project-data">
-                  <h4 class = 'title'>{{ project.title }}</h4>
-                  <h6 class = 'project-meta'> {{project.date}} <br> {% for cat in category %} {% if forloop.last == false %} <span>{{ cat.name }} ,</span> {% else %} <span> {{ cat.name }}</span>{% endif %} {% endfor %}</h6>   
+               <div class = "gallery-data">
+                  <h4 class = 'title'>{{ gallery.title }}</h4>
+                  <h6 class = 'gallery-meta'> {{gallery.date}} <br> {% for cat in category %} {% if forloop.last == false %} <span>{{ cat.name }} ,</span> {% else %} <span> {{ cat.name }}</span>{% endif %} {% endfor %}</h6>   
                </div>
             </div>
          
             <div class = "col-md-8 col-lg-7">
-               <div class = "slider">
+               <div class = "big-picture">
                   {% for pic in pictures %}
-                  <span class = 'slider-thumb'>
+                  <span class = 'big-picture-thumb'>
                      <img src = '{% static "images/"|add:pic.source %}' />
                   </span>
                   {% endfor %}

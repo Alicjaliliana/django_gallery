@@ -34,34 +34,34 @@ class PictureSerializer(serializers.ModelSerializer):
       return instance
    
    
-class SliderSerializer(serializers.ModelSerializer):
-   picture = PictureSerializer(read_only = True, many = True)
+#class SliderSerializer(serializers.ModelSerializer):
+#   picture = PictureSerializer(read_only = True, many = True)
+#   
+#   class Meta:
+#      model = Slider
+#      fields = ("title", "picture")
+#      
+#   def create(self, validated_data):
+#      return Slider.objects.create(**validated_data)
+#   
+#   def update (self, instance, validated_data):
+#      instance.title = validated_data.get('title', instance.title)
+#      instance.save()
+#      return instance
    
-   class Meta:
-      model = Slider
-      fields = ("title", "picture")
-      
-   def create(self, validated_data):
-      return Slider.objects.create(**validated_data)
    
-   def update (self, instance, validated_data):
-      instance.title = validated_data.get('title', instance.title)
-      instance.save()
-      return instance
-   
-   
-class ProjectSerializer(serializers.ModelSerializer):
+class GallerySerializer(serializers.ModelSerializer):
    category = CategorySerializer(many = True)
    slider = SliderSerializer(required = True)
    thumbnail = serializers.RelatedField(queryset = Picture.objects.all(), source = "Picture")
    
    class Meta:
-      model = Project
+      model = Gallery
       fields = ("title", "date", "thumbnail", "slider", "category")
       read_only_fields = ("date", "update_date")
       
    def create(self, validate_data):
-      return Project.objects.create(**validated_data)
+      return Gallery.objects.create(**validated_data)
    
    def update(self, instance, validate_data):
       instance.category = validate_data.get('category', instance.category)
