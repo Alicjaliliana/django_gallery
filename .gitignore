@@ -1,0 +1,5 @@
+*.pyc
+*.orig
+*.exe
+angular-part/2.7.0
+angular-part/package-lock.json
