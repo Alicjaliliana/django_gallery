@@ -8,8 +8,14 @@
    
    <div class = 'aw-gallery-gallery-set'>
       <div class = 'aw-gallery-thumbnails'>
-         <span class = 'aw-gallery-pic-thumb'><img src = "{{gallery.thumbnail}}" /></span> 
+         <span class = 'aw-gallery-thumb' *ngFor = "let thumb of gallery.Pictures" (click) = "activatePicture(thumb)">
+            <img class = 'aw-gallery-thumb-img' [src] = "thumb.picture" />
+         </span> 
       </div>
-      <div class = 'aw-gallery-choosen-pic'></div>
+      <div *ngIf = 'activePicture'>
+         <div class = 'aw-gallery-current-image'>
+            <img [src] = 'activePicture.picture' />
+         </div>
+      </div>
    </div>
 </div>
