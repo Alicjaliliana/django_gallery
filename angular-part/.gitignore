@@ -33,7 +33,15 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+README.md
+/e2e
+/src/environments
+/src/karma.conf.js
+/src/*.ts
+/src/*.json
+tslint.json
 
 # System Files
 .DS_Store
 Thumbs.db
+.editorconfig

@@ -1,3 +1,10 @@
-<ul>
-   <li *ngFor='let gal of galleries'>{{gal.id}}</li>
-</ul>
+<div class = "container aw-gallery-list">
+   <div class ="col-sm-4 col-md-3 aw-gallery-container" *ngFor='let gal of galleries' (click) = 'onSelect(gal)'>
+      <div class = "aw-gallery-galleries"><div class = "aw-gallery-thumb-img"><img [src] = 'gal.thumbnail' /></div><div class = "aw-gallery-thumb-meta">{{gal.title}}</div></div>
+   </div>
+   <div *ngIf = "selectedGallery">
+      <div>
+         <app-gallery-detail [gallery]="selectedGallery"></app-gallery-detail>
+      </div>
+   </div>
+</div>
