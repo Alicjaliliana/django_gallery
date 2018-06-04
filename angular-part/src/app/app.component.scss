@@ -1,17 +1,14 @@
-//@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
    
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Serif+Pro'); 
 
-.container {
+.aw-gallery-container {
    padding-top: 3vw;
    text-align: center;
+   width: calc(100vw - 4em);
 }
 
-.title{
-   font-family: "Source Sans Pro", sans-serif ;
-   font-size: calc(4vw + 1em);
-   text-align: center;
-}
+
 
 .aw-gallery-button-cta {
    font-size: calc(0.25vw + 0.5em);
@@ -20,7 +17,7 @@
    border-radius: 20px / 40px;   
    border: 2px solid #cfcfcf;
    background-color: #d5d5d552;
-   font-family: "Source Serif Pro", sans-serif;
+   font-family: "Source Serif Pro", sans-serif !important;
    box-shadow: 0 0 20px 0 #ccc;
    color: dimgray;
    

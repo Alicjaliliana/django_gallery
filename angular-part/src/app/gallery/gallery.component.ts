@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AWGallery } from '../gallery/gallery';
-import { GALLERIES } from '../mock-gallery'
+import { GALLERIES } from '../mock-gallery';
+import { GalleryService } from '../gallery.service';
 
 @Component({
   selector: 'app-gallery',
@@ -10,15 +11,21 @@ import { GALLERIES } from '../mock-gallery'
 export class GalleryComponent implements OnInit {
    
   selectedGallery: AWGallery;
-  galleries = GALLERIES;
+  galleries: AWGallery[];
 
-  constructor() { }
+  constructor(private galleryService: GalleryService) { }
 
   ngOnInit() {
+     this.getGalleries();
   }
    
    onSelect(gal: AWGallery): void {
       this.selectedGallery = gal;
+   }
+   
+   getGalleries(): void {
+      this.galleryService.getGalleries()
+         .subscribe(galleries => this.galleries = galleries);
    }
 
 }

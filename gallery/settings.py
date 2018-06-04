@@ -85,7 +85,7 @@ DATABASES = {
     'default': {
        'ENGINE': 'django.db.backends.postgresql',
        'NAME': 'galleriesdb',
-       'USER': getEnvNoNull('POSTGRESQLUSER'),
+       'USER': GetEnvValueNoNull('POSTGRESQLUSER'),
        'PASSWORD': '',
        'HOST': '127.0.0.1',
        'PORT': '5432',
