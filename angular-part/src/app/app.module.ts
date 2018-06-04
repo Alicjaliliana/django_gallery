@@ -4,15 +4,20 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { GalleryListComponent } from './gallery-list/gallery-list.component';
+import { GalleryDetailComponent } from './gallery-detail/gallery-detail.component';
+import { AppRoutingModule } from './/app-routing.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     GalleryComponent,
-    GalleryListComponent
+    GalleryListComponent,
+    GalleryDetailComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
