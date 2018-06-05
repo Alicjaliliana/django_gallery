@@ -13,4 +13,9 @@ export class GalleryService {
    }
 
   constructor() { }
+   
+  getGallery(id: number): Observable<AWGallery> {
+     return of (GALLERIES.find(gallery => gallery.id => id ));
+      
+   }
 }

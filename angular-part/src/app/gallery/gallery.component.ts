@@ -10,7 +10,7 @@ import { GalleryService } from '../gallery.service';
 })
 export class GalleryComponent implements OnInit {
    
-  selectedGallery: AWGallery;
+
   galleries: AWGallery[];
 
   constructor(private galleryService: GalleryService) { }
@@ -19,9 +19,7 @@ export class GalleryComponent implements OnInit {
      this.getGalleries();
   }
    
-   onSelect(gal: AWGallery): void {
-      this.selectedGallery = gal;
-   }
+   
    
    getGalleries(): void {
       this.galleryService.getGalleries()
