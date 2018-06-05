@@ -75,10 +75,10 @@ WSGI_APPLICATION = 'gallery.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 def GetEnvValueNoNull(ValueName):
-   if type(os.getenv('galleryUser')) == 'None':
+   if type(os.getenv(ValueName)) == 'None':
       return ('')
    else:
-      return os.getenv('galleryUser')
+      return os.getenv(ValueName)
 
 
 DATABASES = {
