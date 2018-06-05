@@ -1,9 +1,12 @@
+@import '../gallery/gallery.component.scss';
+@import '../app.component.scss';
+
 .aw-gallery-gallery-set {
    text-align: center;
    
 }
 
-.aw-gallery-thumb{
+.aw-gallery-thumb {
    display: inline-block;
    height: 10vh;
    width: 19vh;
@@ -16,7 +19,7 @@
    }
 }
 
-.aw-gallery-data-container{
+.aw-gallery-data-container {
    background-color: white;
    box-shadow: 0 0 10px 0px #e7e7e7;
    border-radius: 5px;
@@ -25,22 +28,21 @@
 }
 
 .aw-gallery-gallery-data {
-   
+   .aw-gallery-title {
+      font-size: 2em;
+      font-weight: 700;
+      font-family: 'Source Sans Pro', sans-serif;
+   }
+
+   .aw-gallery-meta {
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: .8em;
+      font-weight: 400;
+      text-transform: uppercase;
+   }
 }
 
-.aw-gallery-gallery-data .title {
-   font-size: 2em;
-   font-weight: 700;
-   font-family: 'Source Sans Pro', sans-serif;
-}
-
-.aw-gallery-gallery-data .aw-gallery-meta{
-   font-family: 'Source Sans Pro', sans-serif;
-   font-size: .8em;
-   font-weight: 400;
-   text-transform: uppercase;
-}
-.aw-gallery-current-image{
+.aw-gallery-current-image {
    overflow: hidden;
    border-radius: 5px;
    box-shadow: 0 0 10px 0px #cfcfcf;
