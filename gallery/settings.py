@@ -76,17 +76,17 @@ WSGI_APPLICATION = 'gallery.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 def GetEnvValueNoNull(ValueName):
-   if type(os.getenv('galleryUser')) == 'None':
+   if type(os.getenv(ValueName)) == 'None':
       return ('')
    else:
-      return os.getenv('galleryUser')
+      return os.getenv(ValueName)
 
 
 DATABASES = {
     'default': {
        'ENGINE': 'django.db.backends.postgresql',
        'NAME': 'galleriesdb',
-       'USER': GetEnvValueNoNull('POSTGRESQLUSER'),
+       'USER': GetEnvValueNoNull('galleryUser'),
        'PASSWORD': '',
        'HOST': '127.0.0.1',
        'PORT': '5432',
@@ -137,9 +137,9 @@ STATICFILES_DIRS = [
    os.path.join(BASE_DIR, "static"),
 ]
 
-REST_FRAMEWORK = {
-   'DEFAULT_PERMISSION_CLASSES': [
-      'rest_framework.permissions.AllowAny'
-   ],
-   'PAGE_SIZE': 10
-}
+#REST_FRAMEWORK = {
+#   'DEFAULT_PERMISSION_CLASSES': [
+#      'rest_framework.permissions.AllowAny'
+#   ],
+#   'PAGE_SIZE': 10
+#}
