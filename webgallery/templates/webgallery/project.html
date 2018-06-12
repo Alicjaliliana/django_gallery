@@ -17,7 +17,7 @@
             <div class = "col-md-4 col-lg-5 aw-gallery-data-container">
                <div class = "aw-gallery-gallery-data">
                   <h4 class = 'title'>{{ gallery.title }}</h4>
-                  <h6 class = 'aw-gallery-gallery-meta'> {{gallery.date}} <br> {% for cat in category %} {% if forloop.last == false %} <span>{{ cat.name }} ,</span> {% else %} <span> {{ cat.name }}</span>{% endif %} {% endfor %}</h6>   
+                  <h6 class = 'aw-gallery-gallery-meta'> <br> {% for cat in category %} {% if forloop.last == false %} <span>{{ cat.name }} ,</span> {% else %} <span> {{ cat.name }}</span>{% endif %} {% endfor %}</h6>   
                </div>
             </div>
          
