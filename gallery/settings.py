@@ -83,12 +83,12 @@ def GetEnvValueNoNull(ValueName):
 
 DATABASES = {
     'default': {
-       'ENGINE': 'django.db.backends.postgresql',
-       'NAME': 'galleriesdb',
-       'USER': GetEnvValueNoNull('POSTGRESQLUSER'),
-       'PASSWORD': '',
-       'HOST': '127.0.0.1',
-       'PORT': '5432',
+       'ENGINE': GetEnvValueNoNull('AWGALLERY_DB_ENGINE'),
+       'NAME': GetEnvValueNoNull('AWGALLERY_DB_NAME'),
+       'USER': GetEnvValueNoNull('AWGALLERY_DB_USER'),
+       'PASSWORD': GetEnvValueNoNull('AWGALLERY_DB_PASSWORD'),
+       'HOST': GetEnvValueNoNull('AWGALLERY_DB_HOST'),
+       'PORT': GetEnvValueNoNull('AWGALLERY_DB_PORT'),
 
     }
 }
