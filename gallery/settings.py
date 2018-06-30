@@ -92,7 +92,6 @@ DATABASES = {
        'PASSWORD': GetEnvValueNoNull('AWGALLERY_DB_PASSWORD'),
        'HOST': GetEnvValueNoNull('AWGALLERY_DB_HOST'),
        'PORT': GetEnvValueNoNull('AWGALLERY_DB_PORT'),
-
     }
 }
 
@@ -153,3 +152,4 @@ CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = (
    '*'
 )     
+

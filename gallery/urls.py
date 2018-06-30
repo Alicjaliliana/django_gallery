@@ -20,7 +20,10 @@ from django.urls import path, include
 from webgallery import views
 
 urlpatterns = [
+<<<<<<< HEAD
    path('', views.index, name = 'index'),
+=======
+>>>>>>> b2aa7962e21f79f9cc0b9693312f5efde961b15a
    url(r'^gallery/$', views.gallery_list.as_view()),
    url(r'^gallery/(?P<pk>[0-9]+)$', views.gallery_detail.as_view()),
 #   path('gallery/', include('webgallery.urls')),
