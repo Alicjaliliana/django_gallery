@@ -23,12 +23,7 @@ class PictureSerializer(serializers.ModelSerializer):
    
    class Meta:
       model = Picture
-<<<<<<< HEAD
       fields = ("id", "title", "source")
-=======
-      fields = ("id", "title")
-      read_only_fields = ("source", )
->>>>>>> b2aa7962e21f79f9cc0b9693312f5efde961b15a
       
    def create(self, validated_data):
       return Picture.objects.create(**validated_data)
@@ -40,15 +35,9 @@ class PictureSerializer(serializers.ModelSerializer):
    
    
 class GallerySerializer(serializers.ModelSerializer):
-<<<<<<< HEAD
    category = serializers.SlugRelatedField(many = True, read_only = True, slug_field = "name")
    pictures = serializers.SlugRelatedField(many = True, read_only = True, slug_field = "source")
    thumbnail = serializers.SlugRelatedField(read_only = True, slug_field = "source")
-=======
-   category = CategorySerializer(many = True)
-   pictures = PictureSerializer(many = True)
-   thumbnail = PictureSerializer
->>>>>>> b2aa7962e21f79f9cc0b9693312f5efde961b15a
    
    class Meta:
       model = Gallery
