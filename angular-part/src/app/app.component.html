@@ -1,16 +1,10 @@
  <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class = "navbar-brand">AWGallery</div>
       <div class = 'collapse navbar-collapse'>
-      <ul class = 'navbar-nav mr-auto'>
-         <li class = 'nav-item'> <a class = 'nav-link' routerLink = '/home'>Home</a></li>
-         <li class = 'nav-item'> <a class = 'nav-link' routerLink = '/gallery-list'>Gallery</a></li>
-         </ul>
       </div>
    </nav>
 <section>
    <div class = "aw-gallery-container">
-      
-      <router-outlet>
-      </router-outlet>
+      <router-outlet [id] = "1"></router-outlet>
    </div>
 </section>

@@ -39,9 +39,11 @@ INSTALLED_APPS = [
    'django.contrib.messages',
    'django.contrib.staticfiles',
    'rest_framework',
+   'corsheaders',
 ]
 
 MIDDLEWARE = [
+   'corsheaders.middleware.CorsMiddleware',
    'django.middleware.security.SecurityMiddleware',
    'django.contrib.sessions.middleware.SessionMiddleware',
    'django.middleware.common.CommonMiddleware',
@@ -92,6 +94,7 @@ DATABASES = {
        'PORT': GetEnvValueNoNull('AWGALLERY_DB_PORT'),
 
     }
+}
 
 
 # Password validation
@@ -132,8 +135,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 STATICFILES_DIRS = [
-   os.path.join(BASE_DIR, "static"),
+   os.path.join(BASE_DIR, "static/angular-part/angular-part"),
 ]
 
 REST_FRAMEWORK = {
@@ -142,3 +147,9 @@ REST_FRAMEWORK = {
    ],
    'PAGE_SIZE': 10
 }
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ORIGIN_WHITELIST = (
+   '*'
+)     

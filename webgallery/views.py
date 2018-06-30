@@ -36,9 +36,18 @@ class gallery_detail(mixins.RetrieveModelMixin,
    def delete(self, request, *args, **kwargs):
       return self.destroy(request, *args, **kwargs)
 
-#def index(request):
-#   return HttpResponse("Dupa")
-#
+def index(request):
+   gallery = "ckolowiek"
+   return render(request, 'hello.html', {'gallery': gallery})
+
+def getSerializedGallery(request, gallery_id=0): 
+   from django.core import serializers
+   import json
+   data = serializers.serialize('json', Gallery.objects.filter(id = gallery_id))
+   struct = json.loads(data)
+   data = json.dumps(struct[0])
+   return HttpResponse(data)
+
 #def gallery_list(request):
 #   galleries = Gallery.objects.all()
 #   context = {'galleries': galleries}

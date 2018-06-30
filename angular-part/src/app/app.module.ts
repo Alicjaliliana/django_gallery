@@ -7,6 +7,7 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { GalleryListComponent } from './gallery-list/gallery-list.component';
 import { GalleryDetailComponent } from './gallery-detail/gallery-detail.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { AngTemplateComponent } from './ang-template/ang-template.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { AppRoutingModule } from './/app-routing.module';
       GalleryComponent,
       GalleryListComponent,
       GalleryDetailComponent,
+      AngTemplateComponent,
    ],
    imports: [
       BrowserModule,
