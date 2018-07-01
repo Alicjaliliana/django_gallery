@@ -36,6 +36,14 @@ class Gallery (models.Model):
    def get_pictures(self):
       return self.pictures.all()
    
+   class Meta:
+      verbose_name_plural = "Galleries"
+      
+
+class Template(models.Model):
+   name = models.CharField(max_length = 200)
+   marker = models.CharField(max_length = 200)
+   
    
 class Appearence (models.Model):
    title = models.CharField(max_length = 200)
