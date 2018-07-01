@@ -1,21 +1,30 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { GALLERIES } from './mock-gallery';
 import { AWGallery } from './gallery/gallery';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GalleryService {
-   getGalleries(): Observable<AWGallery[]> {
-      return of(GALLERIES);
+   galleryUrl = "http://localhost:8000/gallery/?format=json"
+   
+   getGalleries() {
+      var tmp = this.http. get(this.galleryUrl);
+      tmp.subscribe(res => console.log(res))
+      return tmp;
    }
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
    
-  getGallery(id: number): Observable<AWGallery> {
-     return of (GALLERIES.find(gallery => gallery.id => id ));
+   getGallery(id: number) {
+   //  const options = new HttpParams().set('id', id.toString())
+     //console.log(options)
+     var GalleryWithID = this.http.get("http://localhost:8000/gallery/"+id+"?format=json")
+     return GalleryWithID
+     //return of (GALLERIES.find(gallery => gallery.id === id ));
       
    }
 }

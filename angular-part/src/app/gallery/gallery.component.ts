@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { AWGallery } from '../gallery/gallery';
 import { GALLERIES } from '../mock-gallery';
 import { GalleryService } from '../gallery.service';
@@ -8,22 +10,24 @@ import { GalleryService } from '../gallery.service';
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.scss']
 })
+
 export class GalleryComponent implements OnInit {
-   
+  id: number;
+  appearance: string
+  galleries: object;
+  galleryData: string [];
 
-  galleries: AWGallery[];
 
-  constructor(private galleryService: GalleryService) { }
+  constructor(private galleryService: GalleryService, private httpService: HttpClient) { }
 
   ngOnInit() {
      this.getGalleries();
   }
    
+  getGalleries(): void {
+     this.galleryService.getGalleries()
+        .subscribe(galleries => this.galleries = galleries);
+  }
    
-   
-   getGalleries(): void {
-      this.galleryService.getGalleries()
-         .subscribe(galleries => this.galleries = galleries);
-   }
 
 }

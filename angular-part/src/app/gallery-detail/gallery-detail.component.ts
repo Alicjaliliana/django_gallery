@@ -3,6 +3,8 @@ import { AWGallery } from '../gallery/gallery';
 import { Picture } from '../picture';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+
 
 import { GalleryService } from '../gallery.service';
 
@@ -11,28 +13,28 @@ import { GalleryService } from '../gallery.service';
   templateUrl: './gallery-detail.component.html',
   styleUrls: ['./gallery-detail.component.scss']
 })
+
 export class GalleryDetailComponent implements OnInit {
-   activePicture: Picture;
-   @Input() gallery: AWGallery;
+   activePicture: string;
+   @Input()
+   gallery: object;
 
   constructor(
       private route: ActivatedRoute,
       private galleryService: GalleryService,
-      private location: Location
+      private location: Location,
+      private httpService: HttpClient
    ) { }
 
   ngOnInit(): void {
-     this.getGallery();
-  }
-   
-   getGallery(): void {
-      const id = +this.route.snapshot.paramMap.get('id')
+     const id = this.route.snapshot.params.id
       this.galleryService.getGallery(id).
          subscribe(gallery => this.gallery = gallery)
-   }
+  }
    
-   activatePicture(thumb: Picture): void {
+   activatePicture(thumb: string): void {
       this.activePicture = thumb;
+      console.log(thumb)
    }
 
 }
