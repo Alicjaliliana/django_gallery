@@ -31,23 +31,26 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'webgallery.apps.WebgalleryConfig',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+   'webgallery.apps.WebgalleryConfig',
+   'django.contrib.admin',
+   'django.contrib.auth',
+   'django.contrib.contenttypes',
+   'django.contrib.sessions',
+   'django.contrib.messages',
+   'django.contrib.staticfiles',
+   'rest_framework',
+   'corsheaders',
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+   'corsheaders.middleware.CorsMiddleware',
+   'django.middleware.security.SecurityMiddleware',
+   'django.contrib.sessions.middleware.SessionMiddleware',
+   'django.middleware.common.CommonMiddleware',
+   'django.middleware.csrf.CsrfViewMiddleware',
+   'django.contrib.auth.middleware.AuthenticationMiddleware',
+   'django.contrib.messages.middleware.MessageMiddleware',
+   'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'gallery.urls'
@@ -89,7 +92,6 @@ DATABASES = {
        'PASSWORD': GetEnvValueNoNull('AWGALLERY_DB_PASSWORD'),
        'HOST': GetEnvValueNoNull('AWGALLERY_DB_HOST'),
        'PORT': GetEnvValueNoNull('AWGALLERY_DB_PORT'),
-
     }
 }
 
@@ -132,6 +134,22 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 STATICFILES_DIRS = [
-   os.path.join(BASE_DIR, "static"),
+   os.path.join(BASE_DIR, "static/angular-part/angular-part"),
 ]
+
+REST_FRAMEWORK = {
+   'DEFAULT_PERMISSION_CLASSES': [
+      'rest_framework.permissions.AllowAny'
+   ],
+   'PAGE_SIZE': 10
+}
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ORIGIN_WHITELIST = (
+   '*'
+)     
+

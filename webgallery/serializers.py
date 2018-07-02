@@ -2,13 +2,13 @@ from django.contrib.auth import update_session_auth_hash
 
 from rest_framework import serializers
 
-from webgallery.models import Category, Picture, Gallery, Appearence
+from webgallery.models import Category, Picture, Gallery, Template, Appearence
 
 class CategorySerializer(serializers.ModelSerializer):
         
    class Meta:
       model = Category
-      fields = ("name")
+      fields = ("id", "name")
 
    def create(self, validated_data):
       return Category.objects.create(**validated_data)
@@ -17,13 +17,13 @@ class CategorySerializer(serializers.ModelSerializer):
       instance.name = validated_data.get('name', instance.name)
       instance.save()
       return instance
+   
          
 class PictureSerializer(serializers.ModelSerializer):
    
    class Meta:
       model = Picture
-      fields = ("title")
-      read_only_fields = ("source")
+      fields = ("id", "title", "source")
       
    def create(self, validated_data):
       return Picture.objects.create(**validated_data)
@@ -34,31 +34,15 @@ class PictureSerializer(serializers.ModelSerializer):
       return instance
    
    
-#class SliderSerializer(serializers.ModelSerializer):
-#   picture = PictureSerializer(read_only = True, many = True)
-#   
-#   class Meta:
-#      model = Slider
-#      fields = ("title", "picture")
-#      
-#   def create(self, validated_data):
-#      return Slider.objects.create(**validated_data)
-#   
-#   def update (self, instance, validated_data):
-#      instance.title = validated_data.get('title', instance.title)
-#      instance.save()
-#      return instance
-   
-   
 class GallerySerializer(serializers.ModelSerializer):
-   category = CategorySerializer(many = True)
+   category = serializers.SlugRelatedField(many = True, read_only = True, slug_field = "name")
    pictures = PictureSerializer(many = True)
-   thumbnail = serializers.RelatedField(queryset = Picture.objects.all(), source = "Picture")
+   thumbnail = serializers.SlugRelatedField(read_only = True, slug_field = "source")
    
    class Meta:
       model = Gallery
-      fields = ("title", "date", "thumbnail", "pictures", "category")
-      read_only_fields = ("date", "update_date")
+      fields = ("id", "title", "creation_date", "thumbnail", "pictures", "category")
+      read_only_fields = ("creation_date", "update_date")
       
    def create(self, validate_data):
       return Gallery.objects.create(**validated_data)
@@ -70,13 +54,20 @@ class GallerySerializer(serializers.ModelSerializer):
       instance.thumbnail = validate_data.get('thumbnail', instance.thumbnail)
       instance.save()
       return instance
+   
+
+class TemplateSerializer(serializers.ModelSerializer):
+   
+   class Meta:
+      model = Template
+      fields = ("id", "name", "marker")
 
    
 class AppearenceSerializer(serializers.ModelSerializer):
    
    class Meta:
       model = Appearence
-      fields = ('title', 'lightbox', 'border', 'borderrad', 'current', 'bckgcolor', 'fontcolor')
+      fields = ("id", 'title', 'lightbox', 'border', 'borderrad', 'current', 'bckgcolor', 'fontcolor')
    
    def create(self, validated_data):
       return Appearence.objects.create(**validated_data)      
