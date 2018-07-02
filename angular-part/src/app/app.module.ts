@@ -8,6 +8,7 @@ import { GalleryListComponent } from './gallery-list/gallery-list.component';
 import { GalleryDetailComponent } from './gallery-detail/gallery-detail.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { AngTemplateComponent } from './ang-template/ang-template.component';
+import { TempLightboxComponent } from './temp-lightbox/temp-lightbox.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { AngTemplateComponent } from './ang-template/ang-template.component';
       GalleryListComponent,
       GalleryDetailComponent,
       AngTemplateComponent,
+      TempLightboxComponent,
    ],
    imports: [
       BrowserModule,

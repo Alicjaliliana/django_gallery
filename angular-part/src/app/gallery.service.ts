@@ -20,11 +20,7 @@ export class GalleryService {
   constructor(private http: HttpClient) { }
    
    getGallery(id: number) {
-   //  const options = new HttpParams().set('id', id.toString())
-     //console.log(options)
      var GalleryWithID = this.http.get("http://localhost:8000/gallery/"+id+"?format=json")
      return GalleryWithID
-     //return of (GALLERIES.find(gallery => gallery.id === id ));
-      
    }
 }
