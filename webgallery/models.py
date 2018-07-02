@@ -21,11 +21,11 @@ class Picture (models.Model):
 
 class Gallery (models.Model):
    title = models.CharField(max_length = 200)
-   creation_date = models.DateTimeField(auto_now_add = True)
+   creation_date = models.DateField(auto_now_add = True)
    category = models.ManyToManyField(Category)
    thumbnail = models.ForeignKey(Picture, on_delete=models.CASCADE, related_name = "Thumbnail")
    pictures = models.ManyToManyField(Picture)
-   update_date = models.DateTimeField(auto_now = True, blank = True)
+   update_date = models.DateField(auto_now = True, blank = True)
    
    def __str__ (self):
       return "%s" % (self.title)
