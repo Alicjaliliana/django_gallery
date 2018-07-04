@@ -13,7 +13,7 @@ export class TempGalleryVerticalComponent implements OnInit {
    activePicture: string;
    @Input()
    gallery: object;
-   
+   initialised = false;
       
    activatePicture(thumb: string): void {
       this.activePicture = thumb;
@@ -29,7 +29,15 @@ export class TempGalleryVerticalComponent implements OnInit {
   ngOnInit() {
     const id = this.route.snapshot.params.id;
       this.galleryService.getGallery(id).
-         subscribe(gallery => this.gallery = gallery);
+         subscribe(gallery => { 
+                   this.gallery = gallery; 
+                   if (!this.initialised && this.gallery !== undefined){
+                     
+                     this.activePicture = this.gallery.pictures[0].source;
+                     this.initialised = true;
+                     }
+                   }
+);
   }
 
 }
