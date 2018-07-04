@@ -26,10 +26,11 @@ export class TempLightboxComponent implements OnInit {
       subscribe(galleries => this.galleries = galleries)
    }
    
-   openGallery(gal: object): void {
+   openGallery(gal): void {
       document.getElementById('opened-gallery').style.display = "block";
+      this.activatePicture(gal.pictures[0].source);
       this.gallery = gal;
-      this.activatePicture(this.gallery.pictures[0].source)
+      console.log(this.gallery)
    }
    
    closeGallery(): void {

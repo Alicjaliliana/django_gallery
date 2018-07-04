@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Serif+Pro'); 
 
 body {
@@ -6,7 +5,6 @@ body {
    background-color: #f6f6f6 !important;
 }
 nav{
-   margin-bottom: calc(10vh + 1em) !important;
    background-color: #fff;
    box-shadow: 0 0 15px 0 #cfcfcf;
 }

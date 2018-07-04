@@ -1,0 +1,13 @@
+<div class = "container aw-gallery-list">
+
+      <div class ="col-sm-4 col-md-3 aw-gallery-container" *ngFor='let gal of galleries' >
+      <a routerLink = '/aw-gallery/{{gal.id}}'>
+         <div class = "aw-gallery-galleries">
+            <div class = "aw-gallery-thumb-img">
+               <img [src] = 'gal.thumbnail' />
+            </div>
+            <div class = "aw-gallery-thumb-meta">{{gal.title}}</div>
+         </div>
+      </a>
+   </div>
+</div>
