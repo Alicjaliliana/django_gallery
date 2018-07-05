@@ -10,11 +10,18 @@ import { catchError } from 'rxjs/operators';
 })
 export class GalleryService {
    galleryUrl = "http://localhost:8000/gallery/?format=json"
+   templateUrl = "http://localhost:8000/templates/?format=json"
    
    getGalleries() {
       var tmp = this.http. get(this.galleryUrl);
       tmp.subscribe(res => console.log(res))
       return tmp;
+   }
+   
+   getTemplate() {
+      var temps = this.http.get(this.templateUrl);
+      temps.subscribe(res => console.log(res))
+      return temps;
    }
 
   constructor(private http: HttpClient) { }

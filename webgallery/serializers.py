@@ -61,19 +61,28 @@ class TemplateSerializer(serializers.ModelSerializer):
    class Meta:
       model = Template
       fields = ("id", "name", "marker")
+   
+   def update(self, instance, validate_data):
+      instance.category = validate_data.get('category', instance.category)
+      instance.slider = validate_data.get('pictures', instance.slider)
+      instance.title = validate_data.get('title', instance.title)
+      instance.thumbnail = validate_data.get('thumbnail', instance.thumbnail)
+      instance.save()
+      return instance
 
    
 class AppearenceSerializer(serializers.ModelSerializer):
+   template = serializers.SlugRelatedField(many = False, read_only = True, slug_field = "name")
    
    class Meta:
       model = Appearence
-      fields = ("id", 'title', 'lightbox', 'border', 'borderrad', 'current', 'bckgcolor', 'fontcolor')
+      fields = ("id", 'template', 'lightbox', 'border', 'borderrad', 'current', 'bckgcolor', 'fontcolor')
    
    def create(self, validated_data):
       return Appearence.objects.create(**validated_data)      
    
    def update (self, instance, validated_data):
-      instance.title = validate_data.get('title', instance.title)
+      instance.template = validate_data.get('template', instance.template)
       instance.lightbox = validate_data.get('lightbox', instance.lightbox)
       instance.border = validate_data.get('border', instance.border)
       instance.borderrad = validate_data.get('borderrad', instance.borderrad)

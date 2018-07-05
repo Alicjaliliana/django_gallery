@@ -49,7 +49,7 @@ class Template(models.Model):
    
    
 class Appearence (models.Model):
-   title = models.CharField(max_length = 200)
+   template = models.ForeignKey(Template, on_delete=models.CASCADE, related_name = "Template", default="1")
    lightbox = models.CharField(max_length = 50)
    border = models.IntegerField(default = 0)
    borderrad = models.IntegerField(default = 0)
@@ -58,5 +58,5 @@ class Appearence (models.Model):
    fontcolor = models.CharField(max_length = 50)
    
    def __str__ (self):
-      return "%s" % (self.title)
+      return "%s" % (self.template)
    

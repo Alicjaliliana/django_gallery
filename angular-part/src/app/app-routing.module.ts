@@ -13,7 +13,7 @@ const routes: Routes =[
    {path: '', redirectTo: '/home', pathMatch: 'full'},
    {path: 'gallery-list', component: AngTemplateComponent},
    {path: 'home', component: GalleryListComponent},
-   {path: 'gallery/:id', component: TempGalleryVerticalComponent},
+   {path: 'gallery/:id', component: GalleryDetailComponent},
    {path: 'aw-gallery/:id', component: TempGalleryVerticalComponent}
 ];
 

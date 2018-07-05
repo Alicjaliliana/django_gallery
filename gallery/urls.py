@@ -23,6 +23,7 @@ urlpatterns = [
    path('', views.index, name = 'index'),
    url(r'^gallery/$', views.gallery_list.as_view()),
    url(r'^gallery/(?P<pk>[0-9]+)$', views.gallery_detail.as_view()),
+   url(r'^templates/$', views.templates.as_view()),
 #   path('gallery/', include('webgallery.urls')),
    path('admin/', admin.site.urls),
    path('gallery/<int:gallery_id>/data.json', views.getSerializedGallery)

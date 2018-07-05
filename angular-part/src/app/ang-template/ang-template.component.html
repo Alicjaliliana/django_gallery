@@ -1,1 +1,12 @@
-<app-temp-vertical></app-temp-vertical>
+<div *ngFor ="let temp of template">
+   <div *ngIf="temp.template == 'Traditional'">
+      <app-gallery></app-gallery>
+   </div>
+   
+   <div *ngIf="temp.template == 'Big Squares'">
+      <app-temp-vertical></app-temp-vertical>
+   </div>
+   <div *ngIf="temp.template == 'Lightbox'">
+      <app-temp-lightbox></app-temp-lightbox>
+   </div>
+</div>
