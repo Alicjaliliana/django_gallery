@@ -13,7 +13,6 @@ template: object;
 
   ngOnInit() {
      this.galleryService.getTemplate().
-         subscribe(template => {this.template = template;
-                                console.log(template)})
+         subscribe(template => this.template = template)
   }
 }

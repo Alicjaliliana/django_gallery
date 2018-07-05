@@ -16,17 +16,25 @@ export class GalleryComponent implements OnInit {
   appearance: string
   galleries: object;
   galleryData: string [];
+  template: object;
 
 
   constructor(private galleryService: GalleryService, private httpService: HttpClient) { }
+   
 
   ngOnInit() {
+     this.getTemplate();
      this.getGalleries();
   }
    
   getGalleries(): void {
      this.galleryService.getGalleries()
         .subscribe(galleries => this.galleries = galleries);
+  }
+   
+   getTemplate(): void {
+     this.galleryService.getTemplate()
+        .subscribe(template => this.template = template);
   }
    
 

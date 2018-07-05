@@ -33,7 +33,7 @@ export class TempGalleryVerticalComponent implements OnInit {
                    this.gallery = gallery; 
                    if (!this.initialised && this.gallery !== undefined){
                      
-                     this.activePicture = this.gallery.pictures[0].source;
+                     this.activePicture = this.gallery.pictures[0].src;
                      this.initialised = true;
                      }
                    }

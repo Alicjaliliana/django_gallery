@@ -28,7 +28,7 @@ export class TempLightboxComponent implements OnInit {
    
    openGallery(gal): void {
       document.getElementById('opened-gallery').style.display = "block";
-      this.activatePicture(gal.pictures[0].source);
+      this.activatePicture(gal.pictures[0].src);
       this.gallery = gal;
       console.log(this.gallery)
    }

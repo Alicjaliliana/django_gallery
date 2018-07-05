@@ -29,7 +29,14 @@ export class GalleryDetailComponent implements OnInit {
   ngOnInit(): void {
      const id = this.route.snapshot.params.id
       this.galleryService.getGallery(id).
-         subscribe(gallery => this.gallery = gallery)
+         subscribe(gallery => { 
+                   this.gallery = gallery; 
+                   if (!this.initialised && this.gallery !== undefined){
+                     
+                     this.activePicture = this.gallery.pictures[0].src;
+                     this.initialised = true;
+                     }
+                   })
   }
    
    activatePicture(thumb: string): void {

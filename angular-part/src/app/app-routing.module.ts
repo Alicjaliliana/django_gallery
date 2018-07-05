@@ -15,7 +15,6 @@ const routes: Routes =[
    {path: 'gallery-list', component: AngTemplateComponent},
    {path: 'home', component: GalleryListComponent},
    {path: 'gallery/:id', component: TempDetailsComponent},
-   {path: 'aw-gallery/:id', component: TempGalleryVerticalComponent}
 ];
 
 @NgModule({

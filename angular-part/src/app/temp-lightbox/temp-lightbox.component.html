@@ -4,7 +4,7 @@
       <div (click) ='openGallery(gal)'>
          <div class = "aw-gallery-galleries">
             <div class = "aw-gallery-thumb-img">
-               <img [src] = 'gal.thumbnail' />
+               <img [src] = 'gal.feature_img.src' />
             </div>
             <div class = "aw-gallery-thumb-meta">{{gal.title}}</div>
          </div>
@@ -24,8 +24,8 @@
 
          <div class = 'aw-gallery-gallery-set'>
             <div class = 'aw-gallery-thumbnails'>
-               <span class = 'aw-gallery-thumb' *ngFor = "let thumb of gallery.pictures" (click) = "activatePicture(thumb.source)">
-                  <img class = 'aw-gallery-thumb-img' [src] = "thumb.source" />
+               <span class = 'aw-gallery-thumb' *ngFor = "let thumb of gallery.pictures" (click) = "activatePicture(thumb.src)">
+                  <img class = 'aw-gallery-thumb-img' [src] = "thumb.src" />
                </span> 
             </div>
             <div *ngIf = 'activePicture'>
