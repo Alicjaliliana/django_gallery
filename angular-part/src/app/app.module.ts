@@ -11,6 +11,7 @@ import { AngTemplateComponent } from './ang-template/ang-template.component';
 import { TempLightboxComponent } from './temp-lightbox/temp-lightbox.component';
 import { TempGalleryVerticalComponent } from './temp-gallery-vertical/temp-gallery-vertical.component';
 import { TempVerticalComponent } from './temp-vertical/temp-vertical.component';
+import { TempDetailsComponent } from './temp-details/temp-details.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { TempVerticalComponent } from './temp-vertical/temp-vertical.component';
       TempLightboxComponent,
       TempGalleryVerticalComponent,
       TempVerticalComponent,
+      TempDetailsComponent,
    ],
    imports: [
       BrowserModule,
