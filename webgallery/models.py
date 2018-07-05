@@ -44,6 +44,9 @@ class Template(models.Model):
    name = models.CharField(max_length = 200)
    marker = models.CharField(max_length = 200)
    
+   def __str__ (self):
+      return "%s" %(self.name)
+   
    
 class Appearence (models.Model):
    title = models.CharField(max_length = 200)
