@@ -1,7 +1,7 @@
 @import '../../../node_modules/bootstrap/scss/bootstrap.scss';
 @import '../app.component.scss';
 
-.container{
+.container {
    width: 100%;
    height: 100vh;
    overflow: hidden;
@@ -9,7 +9,8 @@
    max-width: 100%;
    text-align: left;
 }
-.aw-gallery-gallery-data{
+
+.aw-gallery-gallery-data {
    background-color: #8EC5FC;
    background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
    color: #fff;
@@ -20,38 +21,52 @@
    }
 }
 
-.aw-gallery-thumb{
+.aw-gallery-thumb {
    float: left;
    width: 50%;
-   padding:0;
+   padding: 0;
    height: 30vh !important;
    overflow: hidden;
+   display: flex;
+   align-items: center;
    .aw-gallery-thumb-img {
       width: 100%;
       overflow: inherit;
-      img{
-         width:100%;
+      img {
+         width: 100%;
       }
    }
 }
 
-.aw-gallery-gallery-set{
+.aw-gallery-gallery-set {
    padding: 0;
    float: left;
    display: inline-block;
    margin: 0;
    overflow: auto;
 }
-.aw-gallery-active-pic{
+
+.aw-gallery-current-image {
+   background-color: #fff;
+   padding: 1vw;
+   text-align: center;
+}
+
+.aw-gallery-active-pic {
    width: 100%;
-   padding:0;
-   margin:0 !important;
-   display: inline-block;
+   padding: 0;
+   margin: 0 !important;
    overflow: hidden;
-   img{
-      width: 100%;
+   height: 100vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: #fff; 
+   img {
+      max-height: 96vh;
    }
 }
-#back{
+
+#back {
    font-weight: 600;
 }

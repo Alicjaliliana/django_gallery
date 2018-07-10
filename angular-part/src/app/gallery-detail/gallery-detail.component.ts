@@ -18,6 +18,7 @@ export class GalleryDetailComponent implements OnInit {
    activePicture: string;
    @Input()
    gallery: object;
+   initialised = false;
 
   constructor(
       private route: ActivatedRoute,
@@ -42,6 +43,7 @@ export class GalleryDetailComponent implements OnInit {
    activatePicture(thumb: string): void {
       this.activePicture = thumb;
       console.log(thumb)
+	
    }
 
 }
