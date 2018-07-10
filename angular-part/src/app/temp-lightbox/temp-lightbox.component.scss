@@ -2,7 +2,6 @@
 @import '../app.component.scss';
 
 // Main Template
-
 $width: 15vw;
 
 .container {
@@ -11,30 +10,35 @@ $width: 15vw;
    width: 100%;
 }
 
-.aw-gallery-container{
+.aw-gallery-container {
    position: relative;
    display: inline-block;
    padding: .75%;
 }
 
-.aw-gallery-galleries{
+.aw-gallery-galleries {
    min-width: $width;
    min-height: $width;
    position: relative;
    background-color: #fff;
    box-shadow: 0 0 10px 0px #e7e7e7;
    overflow: hidden;
-   .aw-gallery-thumb-img{
+   .aw-gallery-thumb-img {
       position: absolute;
       z-index: 1;
       width: 100%;
+      height: 100%;
       overflow: inherit;
-      img{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
          width: 100%;
       }
    }
 }
-.aw-gallery-thumb-meta{
+
+.aw-gallery-thumb-meta {
    position: absolute;
    display: none;
    width: 100%;
@@ -46,14 +50,14 @@ $width: 15vw;
    z-index: 2;
    color: #fff;
 }
-.aw-gallery-galleries:hover .aw-gallery-thumb-meta{
-   display:block;
+
+.aw-gallery-galleries:hover .aw-gallery-thumb-meta {
+   display: block;
    cursor: pointer;
 }
 
 // Opened Gallery
-
-#opened-gallery{
+#opened-gallery {
    width: 100%;
    height: 100%;
    overflow: hidden;
@@ -74,17 +78,17 @@ $width: 15vw;
       border: none;
       cursor: pointer;
    }
-   #close:hover{
+   #close:hover {
       background-color: red;
    }
-   #close:active{
+   #close:active {
       background-color: darkred;
    }
-   .aw-gallery-container{
-      background-color:  #fff;
+   .aw-gallery-container {
+      background-color: #fff;
       box-shadow: 0 0 15px 0px #e7e7e7;
       width: 35%;
-      margin: 10vh auto 0 auto;
+      margin: 8vh auto 0 auto;
       max-height: 625px;
       min-height: 625px;
       z-index: 5;
@@ -92,11 +96,11 @@ $width: 15vw;
 }
 
 // Gallery
-
 .aw-gallery-gallery-set {
    text-align: center;
 }
-.aw-gallery-thumbnails{
+
+.aw-gallery-thumbnails {
    margin-bottom: 3vh;
    width: inherit;
    padding: 1%;
@@ -110,8 +114,15 @@ $width: 15vw;
    width: 15vh;
    margin-left: 1%;
    overflow: hidden;
-   img {
-      width: 120%;
+   .aw-gallery-thumb-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      img {
+         width: 120%;
+      }
    }
 }
 
@@ -134,30 +145,43 @@ $width: 15vw;
    }
 }
 
+.aw-gallery-curr-container {
+   height: 57.5vh;
+}
+
 .aw-gallery-current-image {
    overflow: hidden;
-   img{
-      width: 80%;
+   display: flex;
+   height: 100%;
+   width: 100%;
+   justify-content: center;
+   align-items: center;
+   img {
+      max-height: 100%;
+      max-width: 100%;
    }
 }
 
 // Scrollbar
 ::-webkit-scrollbar {
-    height: 5px;
+   height: 5px;
    border-radius: 5px;
 }
 
 /* Track */
+
 ::-webkit-scrollbar-track {
-    background: #f8f9fa; 
+   background: #f8f9fa;
 }
- 
+
 /* Handle */
+
 ::-webkit-scrollbar-thumb {
-    background: #b7d6ef ; 
+   background: #b7d6ef;
 }
 
 /* Handle on hover */
+
 ::-webkit-scrollbar-thumb:hover {
-    background: dodgerblue;
+   background: dodgerblue;
 }
