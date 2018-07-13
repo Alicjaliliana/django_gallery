@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { LazyLoadImagesModule } from 'ngx-lazy-load-images';
 
 import { AppComponent } from './app.component';
 import { GalleryComponent } from './gallery/gallery.component';
@@ -29,7 +30,8 @@ import { TempDetailsComponent } from './temp-details/temp-details.component';
    imports: [
       BrowserModule,
       AppRoutingModule,
-      HttpClientModule
+      HttpClientModule,
+      LazyLoadImagesModule,
    ],
    providers: [],
    bootstrap: [AppComponent]

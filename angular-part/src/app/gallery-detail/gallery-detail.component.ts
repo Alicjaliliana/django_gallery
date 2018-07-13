@@ -33,7 +33,6 @@ export class GalleryDetailComponent implements OnInit {
          subscribe(gallery => { 
                    this.gallery = gallery; 
                    if (!this.initialised && this.gallery !== undefined){
-                     
                      this.activePicture = this.gallery.pictures[0].src;
                      this.initialised = true;
                      }

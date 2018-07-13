@@ -22,6 +22,7 @@
 }
 
 .aw-gallery-thumb {
+   cursor: pointer;
    float: left;
    width: 50%;
    padding: 0;
@@ -32,6 +33,7 @@
    .aw-gallery-thumb-img {
       width: 100%;
       overflow: inherit;
+      background: url(../../assets/loading.gif) 50% no-repeat;
       img {
          width: 100%;
       }
@@ -62,6 +64,8 @@
    align-items: center;
    justify-content: center;
    background-color: #fff; 
+   background: #fff url(../../assets/loading.gif) 50% no-repeat;
+
    img {
       max-height: 96vh;
    }

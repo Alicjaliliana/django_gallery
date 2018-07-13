@@ -8,6 +8,7 @@ import { GalleryService } from '../gallery.service';
 })
 export class TempVerticalComponent implements OnInit {
   galleries: object;
+  gallery: object;
 
   constructor(private galleryService: GalleryService) { }
 
@@ -16,8 +17,19 @@ export class TempVerticalComponent implements OnInit {
   }
    
    getGalleries(): void {
+      this.loadGallery();
       this.galleryService.getGalleries().
-         subscribe(galleries => this.galleries = galleries)
+         subscribe(galleries => this.galleries = galleries);
+      this.loadGallery();
    }
 
+   loadGallery():void {
+      this.gallery = document.images;
+      /*setTimeout(function() {
+      this.gallery.classList.remove("loading");
+   }, 3000); */
+      console.log(this.gallery)
+   }
+      
+   
 }

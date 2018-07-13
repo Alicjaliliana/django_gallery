@@ -19,6 +19,7 @@
       .aw-gallery-thumb-img{
          position: absolute;
          z-index: 1;
+         background: url(../../assets/loading.gif) 50% no-repeat;
          img {
             width: 120%;
          }
