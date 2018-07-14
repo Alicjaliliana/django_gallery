@@ -71,3 +71,13 @@
       border-radius: 5px;
    }
 }
+#zoom-container{
+   display: none;
+   border: 1px solid black;
+   width: 10vw;
+   height: 15vh;
+   background-repeat: no-repeat;
+   background-color: #fff;
+   cursor: auto;
+   position:absolute;
+}

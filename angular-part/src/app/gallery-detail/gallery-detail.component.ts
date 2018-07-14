@@ -36,7 +36,7 @@ export class GalleryDetailComponent implements OnInit {
                      this.activePicture = this.gallery.pictures[0].src;
                      this.initialised = true;
                      }
-                   })
+                   }) 
   }
    
    activatePicture(thumb: string): void {
@@ -44,5 +44,26 @@ export class GalleryDetailComponent implements OnInit {
       console.log(thumb)
 	
    }
+
+   zoomIn(event){
+      const element = document.getElementById("zoom-container");
+      const img = document.getElementById("activePic");
+      const posX = event.offsetX ? (event.offsetX) : event.pageX - img.offsetLeft;
+      const posY = event.offsetY ? (event.offsetY) : event.pageY - img.offsetTop;
+      element.style.display = "block";
+      element.style.backgroundImage = "url("+img.src+")";
+      element.style.backgroundPosition = (-posX * 4) + "px " + (-posY * 4) + "px";
+      element.style.left = (event.pageX +5) + "px";
+      element.style.top = (event.pageY +5) +"px";
+      img.style.cursor = "none";
+   }
+   
+   zoomOut(){
+      const element = document.getElementById("zoom-container");
+      const img = document.getElementById("activePic");
+      element.style.display = "none";
+      img.style.cursor = "auto";
+   }
+
 
 }
