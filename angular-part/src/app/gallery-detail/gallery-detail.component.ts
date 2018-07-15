@@ -15,9 +15,9 @@ import { GalleryService } from '../gallery.service';
 })
 
 export class GalleryDetailComponent implements OnInit {
-   activePicture: string;
+   activePicture: any;
    @Input()
-   gallery: object;
+   gallery: any;
    initialised = false;
 
   constructor(
@@ -52,10 +52,12 @@ export class GalleryDetailComponent implements OnInit {
       const posY = event.offsetY ? (event.offsetY) : event.pageY - img.offsetTop;
       element.style.display = "block";
       element.style.backgroundImage = "url("+img.src+")";
+      element.style.backgroundSize = (img.width * 3.5) + "px " + (img.height * 3.5) + "px";
       element.style.backgroundPosition = (-posX * 4) + "px " + (-posY * 4) + "px";
       element.style.left = (event.pageX +5) + "px";
       element.style.top = (event.pageY +5) +"px";
       img.style.cursor = "none";
+      console.log(img.width img.height)
    }
    
    zoomOut(){

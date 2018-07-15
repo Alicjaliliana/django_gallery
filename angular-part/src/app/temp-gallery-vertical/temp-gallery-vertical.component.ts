@@ -12,7 +12,7 @@ import { GalleryService } from '../gallery.service';
 export class TempGalleryVerticalComponent implements OnInit {
    activePicture: string;
    @Input()
-   gallery: object;
+   gallery: any;
    initialised = false;
       
    activatePicture(thumb: string): void {
