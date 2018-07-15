@@ -46,8 +46,8 @@ export class GalleryDetailComponent implements OnInit {
    }
 
    zoomIn(event){
-      const element = document.getElementById("zoom-container");
-      const img = document.getElementById("activePic");
+      const element = (<HTMLImageElement>document.getElementById("zoom-container"));
+      const img = (<HTMLImageElement>document.getElementById("activePic"));
       const posX = event.offsetX ? (event.offsetX) : event.pageX - img.offsetLeft;
       const posY = event.offsetY ? (event.offsetY) : event.pageY - img.offsetTop;
       element.style.display = "block";
@@ -57,7 +57,6 @@ export class GalleryDetailComponent implements OnInit {
       element.style.left = (event.pageX +5) + "px";
       element.style.top = (event.pageY +5) +"px";
       img.style.cursor = "none";
-      console.log(img.width img.height)
    }
    
    zoomOut(){

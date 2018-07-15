@@ -32,7 +32,7 @@
             </div>
             <div class="aw-gallery-curr-container" *ngIf='activePicture'>
                <div class='aw-gallery-current-image'>
-                  <img [src]='activePicture' />
+                  <img id="activePic" [src]='activePicture' (mousemove)="zoomIn($event)" (mouseout)="zoomOut()" />
                </div>
             </div>
          </div>
@@ -40,4 +40,5 @@
 
       <button id="close" (click)='closeGallery()'>&times;</button>
    </div>
+   <div id="zoom-container" (mousemove)="zoomIn($event)"></div>
 </div>
