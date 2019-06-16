@@ -1,0 +1,76 @@
+@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+@import '../app.component.scss';
+
+.container {
+   width: 100%;
+   height: 100vh;
+   overflow: hidden;
+   padding: 0;
+   max-width: 100%;
+   text-align: left;
+}
+
+.aw-gallery-gallery-data {
+   background-color: #8EC5FC;
+   background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+   color: #fff;
+   padding: 8px 10px;
+   .aw-gallery-title {
+      font-family: "Source Sans Pro", sans-serif !important;
+      font-weight: 600;
+   }
+}
+
+.aw-gallery-thumb {
+   cursor: pointer;
+   float: left;
+   width: 50%;
+   padding: 0;
+   height: 30vh !important;
+   overflow: hidden;
+   display: flex;
+   align-items: center;
+   .aw-gallery-thumb-img {
+      width: 100%;
+      overflow: inherit;
+      background: url(../../assets/loading.gif) 50% no-repeat;
+      img {
+         width: 100%;
+      }
+   }
+}
+
+.aw-gallery-gallery-set {
+   padding: 0;
+   float: left;
+   display: inline-block;
+   margin: 0;
+   overflow: auto;
+}
+
+.aw-gallery-current-image {
+   background-color: #fff;
+   padding: 1vw;
+   text-align: center;
+}
+
+.aw-gallery-active-pic {
+   width: 100%;
+   padding: 0;
+   margin: 0 !important;
+   overflow: hidden;
+   height: 100vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: #fff; 
+   background: #fff url(../../assets/loading.gif) 50% no-repeat;
+
+   img {
+      max-height: 96vh;
+   }
+}
+
+#back {
+   font-weight: 600;
+}

@@ -1,8 +1,12 @@
-<div *ngFor = 'let look of appearanceList'>
-   <button (click) = 'changeAppearance(look)'>{{look.name}}</button>
-</div>
-
-<div *ngIf = 'appearance == "Appear2"'>
-      <h1>{{appearance}}</h1>
-      <h6>{{gallery.name}}</h6>
+<div *ngFor ="let temp of template">
+   <div *ngIf="temp.template == 'Traditional'">
+      <app-gallery></app-gallery>
+   </div>
+   
+   <div *ngIf="temp.template == 'Big Squares'">
+      <app-temp-vertical></app-temp-vertical>
+   </div>
+   <div *ngIf="temp.template == 'Lightbox'">
+      <app-temp-lightbox></app-temp-lightbox>
+   </div>
 </div>

@@ -1,0 +1,45 @@
+.container {
+   width: 100%;
+   max-width: 100%;
+   padding: 0;
+}
+
+.aw-gallery-container{
+   padding: 0;
+   width: 33.33%;
+   display: inline-block;
+   overflow: hidden;
+   .aw-gallery-galleries {
+      position: relative;
+      width: 100%;
+      height: 350px;
+      background-color: #fff;
+      display:flex;    
+      align-items:center;
+      .aw-gallery-thumb-img{
+         position: absolute;
+         z-index: 1;
+         background: url(../../assets/loading.gif) 50% no-repeat;
+         img {
+            width: 120%;
+         }
+      }
+      .aw-gallery-thumb-meta {
+         display: none;
+         position: absolute;
+         z-index: 2;
+         width: 100%;
+         height: 100%;
+         color: azure;
+         font-family: 'Source Sans Pro', sans-serif;
+         font-weight: 600;
+         font-size: 150%;
+         padding: 30% 3%;
+         text-transform: capitalize;
+      }
+   }
+}
+a:hover .aw-gallery-galleries .aw-gallery-thumb-meta{
+   display: block;
+   background-color: rgba(0,0,0, .6);
+}

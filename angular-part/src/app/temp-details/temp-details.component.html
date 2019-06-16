@@ -1,0 +1,9 @@
+<div *ngFor ="let temp of template">
+   <div *ngIf="temp.template == 'Traditional'">
+      <app-gallery-detail></app-gallery-detail>
+   </div>
+   
+   <div *ngIf="temp.template == 'Big Squares'">
+      <app-temp-gallery-vertical></app-temp-gallery-vertical>
+   </div>
+</div>

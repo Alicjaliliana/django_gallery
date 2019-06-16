@@ -1,0 +1,43 @@
+<div class="container aw-gallery-list">
+
+   <div class="col-sm-4 col-md-3 aw-gallery-container" *ngFor='let gal of galleries'>
+      <div (click)='openGallery(gal)'>
+         <div class="aw-gallery-galleries">
+            <div class="aw-gallery-thumb-img" lazy-load-images>
+               <img [attr.data-src]='gal.feature_img.src' />
+            </div>
+            <div class="aw-gallery-thumb-meta">{{gal.title}}</div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<div id="opened-gallery">
+   <div *ngIf='gallery'>
+      <div class='container aw-gallery-container'>
+         <div class='aw-gallery-data-container'>
+            <div class='aw-gallery-gallery-data'>
+               <h4 class='aw-gallery-title'>{{gallery.title}}</h4>
+               <h6 class='aw-gallery-meta'>{{gallery.creation_date}} // {{gallery.category}} <span></span></h6>
+            </div>
+         </div>
+
+         <div class='aw-gallery-gallery-set'>
+            <div class='aw-gallery-thumbnails'>
+               <span class='aw-gallery-thumb' *ngFor="let thumb of gallery?.pictures" (click)="activatePicture(thumb.src)">
+                  <div class = 'aw-gallery-thumb-container'>
+                     <img class = 'aw-gallery-thumb-img' [src] = "thumb.src" />
+                  </div>
+               </span>
+            </div>
+            <div class="aw-gallery-curr-container" *ngIf='activePicture'>
+               <div class='aw-gallery-current-image'>
+                  <img [src]='activePicture' />
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <button id="close" (click)='closeGallery()'>&times;</button>
+   </div>
+</div>

@@ -6,7 +6,7 @@
       <a routerLink = '/gallery/{{gal.id}}'>
          <div class = "aw-gallery-galleries">
             <div class = "aw-gallery-thumb-img">
-               <img [src] = 'gal.thumbnail' />
+               <img [src] = 'gal.feature_img.src' />
             </div>
             <div class = "aw-gallery-thumb-meta">{{gal.title}}</div>
          </div>
